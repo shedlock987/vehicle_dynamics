@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>veh_dyn_observer</name>
+
+  <version>1.0.0</version>
+
+  <description>Vehicle Dynamics Observer Library</description>
+
+  <author email="rmshedlock@gmail.com">Ryan Shedlock</author>
+  <maintainer email="rmshedlock@gmail.com">Ryan Shedlock</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+
+
+</package>
