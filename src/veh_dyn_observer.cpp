@@ -57,7 +57,7 @@ Veh_Dyn_Observer::Veh_Dyn_Observer(const double& _csr_slope,
         unit_delay_x_ << 0, 0;
     }
 
-    bool Veh_Dyn_Observer::Init() {
+    void Veh_Dyn_Observer::Init() {
         exec_cnt_++;
 
         /// Calculate Initial State Matrix
@@ -93,8 +93,6 @@ Veh_Dyn_Observer::Veh_Dyn_Observer(const double& _csr_slope,
         {
             is_initialized_ = true;
         }
-
-        return is_initialized_;
     }
 
     void Veh_Dyn_Observer::Prediction() {
@@ -151,7 +149,18 @@ void Veh_Dyn_Observer::Correction() {
         alpha_rear_ = -1*atan((x_(0)*b_ + x_(1) ) / Vx_);
         alpha_front_ = cos(rwa_) - atan((x_(0)*a_ + x_(1) ) / Vx_);
     }
+}
 
+Veh_Dyn_Observer::vec_t Veh_Dyn_Observer::Step(double _Vx, double _rwa, double _meas_Omega, double _meas_Vy_Dot, double _mu) {
+                Vx_ = _Vx;
+                rwa_ = _rwa;
+                meas_Omega_ = _meas_Omega;
+                mu_ = _mu;
+
+                this->Init();
+                this->Prediction();
+                this->Correction();
+                return x_;
 }
     
 }

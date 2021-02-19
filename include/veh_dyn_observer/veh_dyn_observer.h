@@ -85,10 +85,8 @@ class Veh_Dyn_Observer{
 
      /** 
      * @brief      Initializes the Observer
-     * 
-     * @return     Initialization Status
      */
-     bool Init();
+     void Init();
 
     /** 
      * @brief      Runs the Observer
@@ -101,7 +99,7 @@ class Veh_Dyn_Observer{
      * 
      * @return     The State
      */
-     vec_t Step(double _Vx, 
+     virtual vec_t Step(double _Vx, 
           double _rwa,
           double _meas_Omega,
           double _meas_Vy_Dot,
